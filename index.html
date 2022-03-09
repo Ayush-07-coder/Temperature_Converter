@@ -1,0 +1,98 @@
+
+<html
+<head>
+<title>click</title>
+<script src="https://kit.fontawesome.com/6cfe8aff40.js" crossorigin="anonymous"></script>
+<style>
+body{
+padding:0px;
+margin:0px;
+background-color:DodgerBlue;
+}
+button{
+padding:10px 20px;
+}
+.container{
+width:500px;
+height:300px;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+position:absolute;
+//border:1px solid black;
+border-radius:5px; 
+background-color:rgb(255,255,255,.8);
+}
+.logo{
+font-size:25px;
+letter-spacing:1px;
+text-align:center;
+}
+.sub_container{
+margin:15px;
+}
+#value{
+width:100%;
+border:none;
+//border-bottom:1px solid black;
+padding:5px;
+border-radius:5px;
+margin-top:5px;
+}
+.button, .clear{
+padding:9px;
+width:40%;
+text-align:center;
+border-radius: 10px;
+border:none;
+transition: all 0.2s ease-in-out;
+bottom:10px;
+background-color:DodgerBlue;
+}
+.result{
+padding:10px;
+margin-bottom:5px;
+font-size:30px;
+}
+
+</style>
+</head>
+<body>
+<div class="container">
+	<p class="logo"><b>Temperature_Converter</b> <i class="fa fa-refresh" aria-hidden="true" id="change"></i></p>
+		<div class="sub_container">
+			<lable style="font-size:30px;"><b><span id="fera">F</span></b></lable><br>
+			<input id="value"><br><br>
+			<lable style="font-size:30px;"><b><span id="cel">C</span></b></lable><br>
+			<lable class="result"></lable>
+			<center><button type="button" class="button" id="button2"><b>Calulate</b></button>
+				<button type="button" class="clear"><b>Clear</b></button></center>
+		</div>
+</div>
+<script>
+
+document.querySelector('.button').addEventListener('click', function(){
+let value1 = Number(document.querySelector('#value').value);
+let result = (value1 - 32) * 5/9;
+document.querySelector('.result').textContent = result;
+console.log(result);
+document.querySelector('.clear').addEventListener('click', function(){
+document.querySelector('#value').value = ' ';
+document.querySelector('.result').textContent = ' ';
+});
+});
+document.querySelector('#change').addEventListener('click', function(){
+document.querySelector('#value').value = ' ';
+document.querySelector('.result').textContent = ' ';
+document.querySelector('#fera').textContent = 'C'; 
+document.querySelector('#cel').textContent = 'F'; 
+document.querySelector('#button2').addEventListener('click', function(){
+let value1 = Number(document.querySelector('#value').value);
+let result = value1 * 9/5 + 32;
+document.querySelector('.result').textContent = result;
+});
+});
+
+</script>
+</body>
+</html>
